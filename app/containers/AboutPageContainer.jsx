@@ -1,0 +1,20 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+export default class AboutPageContainer extends React.Component {
+
+  static getProps() {
+    return {};
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>About Pageeqwe</h2>
+        <p>About us.</p>
+        <Link to="home">back Home</Link>
+      </div>
+    );
+  }
+
+}
