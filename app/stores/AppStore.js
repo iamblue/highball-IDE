@@ -7,11 +7,6 @@ export default createStore({
 });
 
 AppDispatcher.register(function(payload) {
-  // var action = payload.action
-  // switch (action.type) {
 
-  //   default:
-
-  // }
 });
 

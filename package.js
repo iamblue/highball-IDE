@@ -5,7 +5,7 @@ var latest = require('github-latest-release')
 var argv = require('minimist')(process.argv.slice(2))
 var devDeps = Object.keys(require('./package.json').devDependencies)
 
-var appName = argv.name || argv.n || 'ElectronReact'
+var appName = argv.name || argv.n || 'Heighball'
 var shouldUseAsar = argv.asar || argv.a || false
 
 var DEFAULT_OPTS = {

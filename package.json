@@ -57,6 +57,7 @@
     "minimist": "^1.1.1",
     "mocha": "^2.2.5",
     "node-libs-browser": ">= 0.4.0 <=0.6.0",
+    "npm": "^2.13.2",
     "pre-commit": "Mediatek-Cloud/pre-commit",
     "proxyquire": "^1.4.0",
     "raw-loader": "^0.5.1",
@@ -71,13 +72,24 @@
     "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
+    "avrgirl-arduino": "^1.4.0",
     "debug": "^2.2.0",
     "electron-debug": "^0.1.0",
     "flux": "^2.0.3",
+    "font-awesome-stylus": "^4.3.0",
+    "fs-extra": "^0.22.1",
     "keymirror": "^0.1.1",
+    "material-ui": "0.10.1",
+    "mkdirp": "^0.5.1",
     "nib": "^1.1.0",
+    "node-wifiscanner": "^0.2.1",
     "object-assign": "^2.0.0",
-    "react": "^0.13.3",
-    "react-router": "^0.13.3"
+    "react": "0.13.2",
+    "react-ace-wrapper": "^1.0.0",
+    "react-router": "^0.13.3",
+    "react-tap-event-plugin": "^0.1.7",
+    "react-treeview": "^0.3.12",
+    "rx": "^2.5.3",
+    "serialport": "^1.7.4"
   }
 }

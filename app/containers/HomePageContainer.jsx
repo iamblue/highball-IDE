@@ -13,7 +13,8 @@ export default class HomePageContainer extends React.Component {
       <div>
         <h2>Home Page</h2>
         <p>This is the homepage.123qwewe</p>
-        <Link to="about">to About</Link>
+        <Link to="editor">to Editor</Link>
+        <Link to="test">to test</Link>
       </div>
     )
   }
