@@ -5,15 +5,19 @@ import Header from '../components/header';
 import Tools from '../components/editors/tools';
 import Folders from '../components/folderTrees/trees';
 
-var EditorContainer = React.createClass({
+class editorContainer extends React.Component {
+  constructor(...args) {
+    super(...args)
+  }
 
-  render: function() {
+  render () {
     return (
       <div>
         <Header title="oh ya!"/>
         <div className="editor-container">
           <div className="editor-container__folder">
             this is folder
+            <Folders aaa="444" />
           </div>
           <div className="editor-container__preview">
             this is preview
@@ -30,6 +34,6 @@ var EditorContainer = React.createClass({
     );
   }
 
-});
+};
 
-module.exports = EditorContainer;
+export default editorContainer;

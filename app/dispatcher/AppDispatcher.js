@@ -5,7 +5,6 @@ import debug from './utils/debug';
 
 var dd = debug('AppDispatcher');
 
-
 export default assign(new Dispatcher(), {
 
   handleServerAction(action) {

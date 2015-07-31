@@ -1,13 +1,37 @@
-var React = require('react');
+import {default as React, PropTypes} from 'react';
+import ProjectActions from '../../actions/ProjectActions';
 
-var TreesComponent = React.createClass({
+class TreesComponent extends React.Component {
 
-  render: function() {
-    return (
-      <div></div>
-    );
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      aaa: '456',
+      bbb: props.aaa
+    }
+
+    // this._fetchJSON = this._fetchJSON.bind(this);
   }
 
-});
+  // static get PropTypes () {
+  //   return {
+  //     aaa: PropTypes.bool
+  //   };
+  // }
 
-module.exports = TreesComponent;
+  _composeTree(){
+
+  }
+
+  render () {
+    return(
+      <div>{this.props.aaa}</div>
+    )
+  }
+
+}
+
+TreesComponent.propTypes = { aaa: PropTypes.bool };
+
+export default TreesComponent;
