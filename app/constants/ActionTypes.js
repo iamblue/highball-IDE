@@ -1,8 +1,12 @@
-import keyMirror from 'keymirror';
+import constants from 'react-constants';
 
+export default constants([
 
-export default keyMirror({
-  // Routes
-  ROUTE_CHANGE: null
-});
+    "ROUTE_CHANGE",
+    "TOGGLE_LOADING",
 
+    "LOAD_PROJECTS",
+
+    "CREATE_A_FILE"
+
+]);

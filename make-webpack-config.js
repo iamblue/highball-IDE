@@ -1,3 +1,4 @@
+'use strict';
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
@@ -8,7 +9,7 @@ var loadersByExtension = require('./lib/loaders-by-extension');
 module.exports = function(opts) {
 
   var entry = {
-    main: opts.prerender ? './app/mainApp' : './app/mainApp'
+    main: opts.prerender ? './app/boot' : './app/boot'
   }
 
   var loaders = {
@@ -113,6 +114,7 @@ module.exports = function(opts) {
     loader: opts.prerender ? 'react-proxy-loader/unavailable' : 'react-proxy-loader'
   }
 
+
   Object.keys(stylesheetLoaders).forEach(function(ext) {
     var stylesheetLoader = stylesheetLoaders[ext];
     if (Array.isArray(stylesheetLoader)) stylesheetLoader = stylesheetLoader.join('!');
@@ -152,7 +154,7 @@ module.exports = function(opts) {
   }
 
   var nodeModules = fs.readdirSync('node_modules').filter(function(x) { return x !== '.bin' })
-
+  console.log(entry)
   return {
     entry: entry,
     output: output,
