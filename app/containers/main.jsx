@@ -48,8 +48,9 @@ export default class main extends Component {
     //     view = <ProductDetail product={allStates.products.currentProduct} actions={actions} />;
     // }
 
-    // return <div>{view}</div>;
-    return <div><EditorContainer /></div>;
+    return <div></div>;
+    // return <div><EditorContainer /></div>;
+
   }
 
   renderHomePage( { dispatch, ...allStates }) {
@@ -57,8 +58,8 @@ export default class main extends Component {
     if(!actions)
       actions = bindActionCreators(AppActions, dispatch);
 
-    // return <div><HomePageContainer /></div>;
-    return <div></div>;
+    return <div><HomePageContainer /></div>;
+    // return <div></div>;
 
     // return <CartContainer carts={allStates.carts} actions={actions} />;
   }

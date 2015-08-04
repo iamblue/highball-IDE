@@ -4,7 +4,6 @@ import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from './reducers';
 import promiseMiddleware from './utils/promiseMiddleware';
-
 // devTools
 // import { devTools, persistState } from 'redux-devtools';
 
