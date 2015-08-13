@@ -4,8 +4,9 @@ import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from './reducers';
 import promiseMiddleware from './utils/promiseMiddleware';
+
 // devTools
-// import { devTools, persistState } from 'redux-devtools';
+import { devTools, persistState } from 'redux-devtools';
 
 import debug from './utils/debug';
 import './styl/all.styl';
@@ -14,7 +15,6 @@ import npm from 'npm';
 import child_process from 'child_process';
 
 var path = process.cwd() + '/tmp';
-
 var dd = debug('mainApp');
 injectTapEventPlugin();
 
@@ -26,6 +26,13 @@ if( window.reduxState ){
   state = window.reduxState;
   // 用完就刪掉
   delete window.reduxState
+} else {
+  // for Debug 初始化用
+  state = {
+    currentView: 'index', //index, editor
+    isLoading: false,
+    loadingMsg: ''
+  };
 }
 
 // 就是 composeStores(), 將所有 stores 合併起來成為一個 composition(state, action) 指令
@@ -40,13 +47,17 @@ const composedReducers = combineReducers(reducers);
 
 const finalCreateStore = applyMiddleware( promiseMiddleware )(cs);*/
 
+// var cs = compose(devTools(),createStore);
+// state
+
 // 由於要用 Promise middleware，因此改用 applyMiddleware()
+
 const finalCreateStore = applyMiddleware( promiseMiddleware )(createStore);
-let store = finalCreateStore(composedReducers, {
-  currentView: 'editor',
-  isLoading: false,
-  loadingMsg: ''
-});
+let store = finalCreateStore(composedReducers, state);
+
+
+//得到現在初始化 store 狀態
+console.log(store.getState());
 
 // 基礎版 - 不需 promiseMiddleware 時，可用原本的 createStore() 來建立 store instance
 // const store = createStore(composedReducers);

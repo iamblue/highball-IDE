@@ -3,7 +3,7 @@ import mui from 'material-ui';
 import Radium from 'radium';
 import Switch from '../components/modules/switch';
 
-let { Paper, Mixins, Styles } = require('material-ui');
+let { Paper, Mixins, Styles, IconButton, FontIcon } = mui;
 let { Colors, Spacing, Transitions, Typography } = Styles;
 let { StylePropable, StyleResizable } = Mixins;
 let Children = require('../utils/children');
@@ -21,8 +21,8 @@ export default class Cards extends React.Component {
   }
 
   componentDidMount (){
-    console.log(this.props.children)
-    console.log(this.refs['components'].data)
+    // console.log(this.props.children)
+    // console.log(this.refs['components'].data)
   }
 
   getInitialState() {
@@ -43,8 +43,12 @@ export default class Cards extends React.Component {
         zDepth={this.state.zDepth}
         onMouseOver={this._onMouseOver}
         onMouseOut={this._onMouseOut}
-        style={{ width: '300px', height: '317px', marginLeft: '10px', marginRight: '10px'}}
-      >{
+        style={{ width: '280px', height: '317px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '20px' }}
+      >
+        <IconButton tooltip="Sort">
+          <FontIcon className="fa fa-arrows-alt"/>
+        </IconButton>
+        {
           Children.extend(this.props.children, {
             fullScreen: true,
             ref: "components"

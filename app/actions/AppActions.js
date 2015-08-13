@@ -1,10 +1,7 @@
-// import createActions from '../utils/createActions';
-
-// export default createActions({
-
-// });
-
-import types from '../constants/ActionTypes'
+import types from '../constants/ActionTypes';
+// export Burn from './BurnActions';
+// export Project from './ProjectActions';
+// export SerialPort from './SerialPortActions';
 // import WebAPIUtils from '../utils/WebAPIUtils'
 
 export function readAll() {
@@ -32,6 +29,22 @@ export function changeRoute(view) {
     type: types.ROUTE_CHANGE,
     view
   };
+}
+
+export function toggleMenu(status) {
+
+  if (status) {
+    return {
+      type: types.OPEN_MENU,
+      status
+    }
+  } else {
+    return {
+      type: types.CLOSE_MENU,
+      status
+    }
+  }
+
 }
 
 // 例如切換畫面或載入資料時，畫面上顯示 loading spinner

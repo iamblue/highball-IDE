@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "avrgirl-arduino": "^1.4.0",
+    "color": "^0.10.1",
     "debug": "^2.2.0",
     "electron-debug": "^0.1.0",
     "font-awesome-stylus": "^4.3.0",
@@ -93,6 +94,7 @@
     "react-tap-event-plugin": "^0.1.7",
     "react-treeview": "^0.3.12",
     "redux": "^1.0.0-rc",
+    "redux-devtools": "^0.2.0",
     "rx": "^2.5.3",
     "serialport": "^1.7.4"
   }

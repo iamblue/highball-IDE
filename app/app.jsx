@@ -21,9 +21,10 @@ export default class App extends Component {
 
     var tool;
     if ('undefined' !== typeof window) {
-      tool = <DebugPanel top right bottom>
-          <DevTools store={this.props.store} monitor={LogMonitor} />
-           </DebugPanel>
+      tool =
+      <DebugPanel top right bottom>
+        <DevTools store={this.props.store} monitor={LogMonitor} />
+      </DebugPanel>
     }
 
     tool = null;

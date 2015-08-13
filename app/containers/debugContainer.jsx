@@ -1,7 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 import mui from 'material-ui';
-let {FloatingActionButton, Dialog} = mui;
+let {FloatingActionButton, Dialog, FontIcon} = mui;
 var ThemeManager = new mui.Styles.ThemeManager();
 
 @Radium
@@ -23,16 +23,18 @@ export default class debugContainer extends React.Component {
     return (
       <div>
         <FloatingActionButton
-          onTouchTap={this._activeDebugDialog}
-          iconClassName="muidocs-icon-action-grade"
-          style={{ position: 'fixed', bottom: '10px', right: '10px'}}
-        />
+          onTouchTap={ this._activeDebugDialog }
+          style={{ position: 'fixed', bottom: '10px', right: '10px', zIndex:1}}
+        >
+          <FontIcon className="fa fa-code"/>
+        </FloatingActionButton>
 
       </div>
     )
   }
   _activeDebugDialog() {
     // this.refs
+    console.log(123)
   }
 
 }

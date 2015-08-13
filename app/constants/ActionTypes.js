@@ -7,6 +7,8 @@ export default constants([
 
     "LOAD_PROJECTS",
 
-    "CREATE_A_FILE"
+    "CREATE_A_FILE",
 
+    "OPEN_MENU",
+    "CLOSE_MENU"
 ]);
