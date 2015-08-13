@@ -12,6 +12,7 @@ export default class HomePageContainer extends React.Component {
 
     this.state = {}
     this.toggleMenu = this._toggleMenu.bind(this)
+    this.createNewComponent = this._createNewComponent.bind(this)
   }
 
   getChildContext() {
@@ -38,8 +39,8 @@ export default class HomePageContainer extends React.Component {
         </div>
         <div style={ styles.navBg }>
           <nav style={ styles.nav }>
-            <a style={styles.nav.list}>create new component</a>
-            <a style={styles.nav.list}>open component project</a>
+            <a style={styles.nav.list} onTouchTap={this.createNewComponent}>create new component</a>
+            <a style={styles.nav.list} onTouchTap={this.editProject}>open component project</a>
           </nav>
         </div>
       </div>
@@ -50,6 +51,14 @@ export default class HomePageContainer extends React.Component {
     this.props.actions.toggleMenu(false)
   }
 
+  _createNewComponent() {
+    this.props.actions.toggleMenu(false)
+    this.props.actions.changeRoute('editor')
+  }
+
+  _editProject() {
+    this.props.actions.openProject()
+  }
 }
 
 HomePageContainer.childContextTypes = {

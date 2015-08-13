@@ -20,7 +20,7 @@ var Header = React.createClass({
     return (
       <div>
         <AppBar
-          iconElementRight={ <Menus style="color:#fff" /> }
+          iconElementRight={ <Menus actions={ this.props.actions } style="color:#fff" /> }
           title={ this.props.title } />
       </div>
     );

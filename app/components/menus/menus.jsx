@@ -1,48 +1,53 @@
-var React = require('react');
-var mui = require('material-ui');
-var ThemeManager = new mui.Styles.ThemeManager();
+import React from 'react';
+import Radium from 'radium';
+import mui from 'material-ui';
+import Wifi from '../editors/wifi';
 
-var FontIcon = mui.FontIcon;
-var IconButton = mui.IconButton;
-var IconMenu = mui.IconMenu;
-var Colors = mui.Styles.Colors;
-var Dialog = mui.Dialog;
-var FlatButton = mui.FlatButton;
-var munusComponent = React.createClass({
+let {IconButton, FontIcon, IconMenu, Dialog, FlatButton, Styles} = mui;
+var ThemeManager = new Styles.ThemeManager();
+var Colors = Styles.Colors;
 
-  childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
+@Radium
+export default class munusComponent extends React.Component {
+  constructor(props) {
+    super(props)
 
-  getChildContext: function() {
+    this.state = {
+    }
+    this._handleStandardDialogTouchTap = this._handleStandardDialogTouchTap.bind(this)
+    this._handleCustomDialogCancel = this._handleCustomDialogCancel.bind(this)
+    this._handleCustomDialogSubmit = this._handleCustomDialogSubmit.bind(this)
+    this.showDialog = this.showDialog.bind(this)
+    this.goBackToIndex = this._goBackToIndex.bind(this)
+  }
+
+  getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
-  },
-
-  componentWillMount() {
-    // ThemeManager.setPalette({
-    //   textColor: Colors.deepOrange500
-    // });
-  },
+  }
 
   showDialog() {
     this.setState({show: true})
-  },
+  }
 
   _handleStandardDialogTouchTap() {
     this.refs.standardDialog.show();
-  },
+  }
 
   _handleCustomDialogCancel() {
     this.refs.standardDialog.dismiss();
-  },
+  }
 
   _handleCustomDialogSubmit() {
     this.refs.standardDialog.dismiss();
-  },
+  }
 
-  render: function() {
+  _goBackToIndex() {
+    this.props.actions.changeRoute('index');
+  }
+
+  render() {
     var iconButtonElement = <IconButton><FontIcon className="fa fa-link" /></IconButton>;
     let customActions = [
       <FlatButton
@@ -57,12 +62,23 @@ var munusComponent = React.createClass({
     return (
       <nav>
         <a>
-          <IconButton onTouchTap={this._handleStandardDialogTouchTap}>
+          <IconButton onTouchTap={ this.goBackToIndex }>
+            <FontIcon className="fa fa-reply"  />
+          </IconButton>
+        </a>
+        <a>
+          <IconButton onTouchTap={ this._handleStandardDialogTouchTap }>
             <FontIcon className="fa fa-wifi"  />
           </IconButton>
-          <Dialog ref="standardDialog" title="Dialog With Scrollable Content" actions={customActions}
-            autoDetectWindowHeight={true} autoScrollBodyContent={true}>
-              <div style={{height: '2000px'}}>Really long content</div>
+          <Dialog
+            ref="standardDialog"
+            title="Wifi list"
+            actions={ customActions }
+            autoDetectWindowHeight={true}
+            autoScrollBodyContent={true}>
+              <div style={{minHeight: '300px', overflowY:'auto'}}>
+                <Wifi />
+              </div>
           </Dialog>
         </a>
         <a>
@@ -71,11 +87,12 @@ var munusComponent = React.createClass({
           </IconButton>
         </a>
       </nav>
-
-
     );
   }
 
-});
+};
+munusComponent.childContextTypes = {
+  muiTheme: React.PropTypes.object
+};
 
-module.exports = munusComponent;
+export default munusComponent;

@@ -31,6 +31,7 @@ export function changeRoute(view) {
   };
 }
 
+
 export function toggleMenu(status) {
 
   if (status) {

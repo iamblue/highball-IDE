@@ -7,7 +7,7 @@ import {
 import page from 'page';
 
 const initialState = {
-  currentView: 'index',
+  currentView: 'editor',
   isLoading: false,
   loadingMsg: ''
 };

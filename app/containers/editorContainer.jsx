@@ -8,12 +8,13 @@ import Folders from '../components/folderTrees/trees';
 class editorContainer extends React.Component {
   constructor(...args) {
     super(...args)
+    this.state = {}
   }
 
   render () {
     return (
       <div>
-        <Header title="oh ya!"/>
+        <Header actions={ this.props.actions } title="oh ya!"/>
         <div className="editor-container">
           <div className="editor-container__folder">
             this is folder

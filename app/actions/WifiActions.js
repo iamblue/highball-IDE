@@ -1,17 +1,26 @@
 // wifi 相關
-
-var wifiscanner = require('node-wifiscanner');
+import wifiscanner from 'node-wifiscanner';
+import wireless from 'wireless';
+import Promise from 'bluebird';
 
 var WifiActions = {
   scan: function(callback) {
-    wifiscanner.scan(function(err, data){
-      if (err) {
+    return new Promise((resolve, reject) => {
+      return wifiscanner.scan(function(err, data){
+        if (err) {
           console.log("Error : " + err);
-          return;
-      }
-      return data;
-    });
+          return reject(err)
+        }
+        return resolve(data);
+      });
+    })
+  },
+  connect: function(config) {
+    var wl = new Wireless(config);
+    return wl.enable(function(err){
+      wl.start();
+    })
   }
 };
 
-export default WifiActions;
+module.exports = WifiActions;
