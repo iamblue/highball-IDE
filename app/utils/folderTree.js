@@ -5,11 +5,12 @@ module.exports = function folderTree (filename){
   var stats = fs.lstatSync(filename),
   info = {
     path: filename,
-    name: path.basename(filename)
+    label: path.basename(filename)
   };
 
   if (stats.isDirectory()) {
     info.type = "folder";
+    info.checkbox = false;
     info.children = fs.readdirSync(filename).map(function(child) {
         return folderTree(filename + '/' + child);
     });
