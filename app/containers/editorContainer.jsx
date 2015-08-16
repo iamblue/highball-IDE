@@ -27,7 +27,6 @@ class editorContainer extends React.Component {
         <div className="editor-container">
           <div className="editor-container__folder">
             <Trees data={ this.state.pathTree } />
-            this is folder
           </div>
           <div className="editor-container__preview">
             this is preview
